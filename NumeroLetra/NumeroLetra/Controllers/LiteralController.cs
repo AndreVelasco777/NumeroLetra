@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NumeroLetra.Helpers;
 
 namespace NumeroLetra.Controllers
 {
@@ -11,5 +12,15 @@ namespace NumeroLetra.Controllers
     [ApiController]
     public class LiteralController : ControllerBase
     {
+        [HttpGet]
+        public string LiteralGet(int num)
+        {
+            return Conversores.NumeroALetras(num);
+        }
+        [HttpPost]
+        public string LiteralPost([FromHeader]int num)
+        {
+            return Conversores.NumeroALetras(num);
+        }
     }
 }
